@@ -8,7 +8,7 @@ namespace Lab6
 {
     class Program
     {
-        public List<string> wordSplits = new List<string>();
+
         static void Main(string[] args)
         {            //string vowel = ("aeiou");
             //prompt for word
@@ -18,9 +18,7 @@ namespace Lab6
             //starts with consonant move all consonants before vowel to end, and add ay
             //translate another word
             Console.Write("enter word: ");
-            string input = Console.ReadLine().ToLower();
-           
-            char[] splits = new char[0];
+            string input = Console.ReadLine();
             while (true)
             {
                 if (!int.TryParse(input, out int nums))
@@ -34,11 +32,11 @@ namespace Lab6
                     input = Console.ReadLine().ToLower();
                 }
             }
-            int c = 0;
+            var data = input.ToLower();
             string result = "";
-            for (int i = 0; i < input.Length - 1; i++)
+            for (int i = 0; i < data.Length - 1; i++)
             {
-                char letter = input[i];
+                char letter = data[i];
                 if (isVowel(letter))
                 {
                     if (i == 0)
@@ -51,7 +49,7 @@ namespace Lab6
                     result = afterVowel + beforeVowel;
                 }
 
-               
+
             }
 
             Console.WriteLine(result + "ay");
